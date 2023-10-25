@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: rgba(111, 99, 186, 255);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <h1>Domicilio</h1>
+        <div>
+            <h3>Compra de Producto</h3>
+        </div>
+        <div>
+            <label for="idnombre">Nombre completo</label>
+            <input type="text" id="idnombre">
+        </div>
+        <br>
+        <div>
+            <label for="idcedula">Número de documento</label>
+            <input type="number" id="idcedula">
+        </div>
+        <br>
+        <div>
+            <label for="iddireccion">Dirección </label>
+            <input type="text" id="iddireccion">
+            <br>
+            <br>
+            <label for="idadicional">Información Adicional</label>
+            <input type="text" id="idadicional" placeholder="Ej: Barrio, Apto...">
+        </div>
+        <br>
+        <div>
+            <label for="idteléfono">Teléfono </label>
+            <input type="tel" id="idteléfono">
+        </div>
+        <br>
+        <div>
+            <label for="idcorreo">Correo Electrónico</label>
+            <input type="email" id="idcorreo">
+        </div>
+        <br>
+        <br>
+        <textarea name="comentarios" id="comentarios" placeholder="Notas del pedido (opcional)" rows="6"
+            cols="50"></textarea>
+        <br>
+        <div>
+            <h3>Método de Pago</h3>
+        </div>
+        <div>
+            <select name="idpago" id="idpago">
+                <option value="Credito">Tarjeta Crédito</option>
+                <option value="Debito">Tarejta Débito</option>
+                <option value="Entrega">Contra Entrega</option>
+                <option value="Entrega">Pago Online</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <input type="checkbox" name="idterminos" value="terminos">
+            <label for="idterminos">Acepto Términos y Condiciones</label>
+        </div>
+        <div>
+            <input type="checkbox" name="idterminos" value="terminos">
+            <label for="idterminos">Autorizo el tratamiento de los datos personales conforme a la política de
+                datos</label>
+        </div>
+        <br>
+        <br>
+        <div>
+            <button type="submit" value="Realizar Pedido">Realizar Pedido</button>
+        </div>
+</body>
+
+</html>

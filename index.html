@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Documento Domicilios</h1>
+    <div>
+        <label for="fecha">De</label>
+        <input type="date" name="fecha" id="fecha">
+
+        <label for="fecha">A</label>
+        <input type="date" name="fecha" id="fecha">
+
+    </div>
+    <br>
+    <br>
+    <div>
+        <label for="numero">Número Domicilio</label>
+        <input type="numero" name="numero">
+
+        <select name="estado" id="estado">
+            <option value="estado" label="Estado"></option>
+            <option value="pagado">Pagado</option>
+            <option value="por pagar">Por Pagar</option>
+            <option value="facturado">Facturado</option>
+            <option value="anulado">Anulado</option>
+        </select>
+
+        <select name="repartidor" id="repartidor">
+            <option value="repartidor" label="Repartidor"></option>
+            <option value="rappi">Rappi</option>
+            <option value="ifood">Ifood</option>
+            <option value="ubereats">Uber Eats</option>
+        </select>
+    </div>
+
+    <br>
+    <div>
+        <button type="submit" value="buscar">Buscar</button>
+    </div>
+    <br>
+    <br>
+    <div>
+        <table border="1" cellpadding="10" cellspacing="5" align="center">
+            <header>
+                <tr>
+                    <th colspan="7">Resumen</th>
+                </tr>
+                <tr>
+                    <th colspan="1">Proveedor Domicilio</th>
+                    <th colspan="1">Fecha</th>
+                    <th colspan="1">Número Domicilio</th>
+                    <th colspan="1">Estado</th>
+                    <th colspan="1">Cliente</th>
+                    <th colspan="1">Total a recibir</th>
+                    <th colspan="1">Repartidor</th>
+                </tr>
+            </header>
+            <tbody>
+                <tr>
+                    <td>Restaurante 1</td>
+                    <td>15 de Septiembre de 2023</td>
+                    <td>001</td>
+                    <td>Facturado</td>
+                    <td>123456</td>
+                    <td>$80.000</td>
+                    <td>Rappi</td>
+                </tr>
+                <tr>
+                    <td>Restaurante 2</td>
+                    <td>15 de Octubre de 2023</td>
+                    <td>002</td>
+                    <td>Pagado</td>
+                    <td>456789</td>
+                    <td>$50.000</td>
+                    <td>Uber Eats</td>
+                </tr>
+        </table>
+        </tbody>
+    </div>
+    <br>
+    <div>
+        <ul class="pagination">
+            <li><a href="#">«</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a class="active" href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">»</a></li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <div>
+        <button type="submit" value="imprimir">Imprimir</button>
+        <button type="submit" value="excel">Excel</button>
+    </div>
+</body>
+
+</html>
