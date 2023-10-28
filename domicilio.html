@@ -5,88 +5,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: rgba(111, 99, 186, 255);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"> </script>
+    
 </head>
 
-<body>
-    <form action="">
-        <h1>Domicilio</h1>
-        <div>
-            <h3>Compra de Producto</h3>
-        </div>
-        <div>
-            <label for="idnombre">Nombre completo</label>
-            <input type="text" id="idnombre">
-        </div>
-        <br>
-        <div>
-            <label for="idcedula">Número de documento</label>
-            <input type="number" id="idcedula">
-        </div>
-        <br>
-        <div>
-            <label for="iddireccion">Dirección </label>
-            <input type="text" id="iddireccion">
-            <br>
-            <br>
-            <label for="idadicional">Información Adicional</label>
-            <input type="text" id="idadicional" placeholder="Ej: Barrio, Apto...">
-        </div>
-        <br>
-        <div>
-            <label for="idteléfono">Teléfono </label>
-            <input type="tel" id="idteléfono">
-        </div>
-        <br>
-        <div>
-            <label for="idcorreo">Correo Electrónico</label>
-            <input type="email" id="idcorreo">
-        </div>
-        <br>
-        <br>
-        <textarea name="comentarios" id="comentarios" placeholder="Notas del pedido (opcional)" rows="6"
-            cols="50"></textarea>
-        <br>
-        <div>
-            <h3>Método de Pago</h3>
-        </div>
-        <div>
-            <select name="idpago" id="idpago">
-                <option value="Credito">Tarjeta Crédito</option>
-                <option value="Debito">Tarejta Débito</option>
-                <option value="Entrega">Contra Entrega</option>
-                <option value="Entrega">Pago Online</option>
-            </select>
-        </div>
-        <br>
-        <div>
-            <input type="checkbox" name="idterminos" value="terminos">
-            <label for="idterminos">Acepto Términos y Condiciones</label>
+<body class="font-mono bg-gray-300">
+    <!-- Container -->
+    <div class="container mx-auto">
+        <div class="flex justify-center px-6 my-12">
+            <!-- Row -->
+            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
+                <!-- Col -->
+                <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/1 bg-cover rounded-l-lg"
+                    style="background-image: url('https://hablabiendeaca.com/images/archivos/162527012020acb5f1.jpg')">
+                </div>
+                <!-- Col -->
+                <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none">
+                    <h3 class="pt-4 text-2xl text-center">Domicilios</h3>
+                    <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                        <div class="mb-4 md:flex md:justify-between">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="nombre">
+                                    Nombre Completo
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="nombre" type="text" />
+                            </div>
+                            <div class="md:ml-2">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="documento">
+                                    Número de Documento
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="documento" type="text" />
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-700" for="email">
+                                Email
+                            </label>
+                            <input
+                                class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                id="email" type="email" />
+                        </div>
 
+                        <div class="mb-4">
+                            <div class="mb-4 md:mr-2 md:mb-0">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="direccion">
+                                    Dirección
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="direccion" type="text" />
+
+                            </div>
+
+
+                            <div class="mb-4">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="info">
+                                    Información Adicional
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="info" type="text" placeholder="Ej: Barrio, Apto..." />
+                            </div>
+
+                            <div class="md:ml-2">
+                                <label class="block mb-2 text-sm font-bold text-gray-700" for="cel">
+                                    Celular
+                                </label>
+                                <input
+                                    class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                                    id="cel" type="text" />
+                            </div>
+                        </div>
+                        <div>
+                            <textarea name="comentarios" id="comentarios" placeholder="Notas del pedido (opcional)"
+                                rows="6" cols="50"></textarea>
+                        </div>
+                        <br>
+
+                        <div>
+                            <h2>Método de Pago</h2>
+                        </div>
+                        <br>
+                        <div>
+                            <select name="idpago" id="idpago">
+                                <option value="Credito">Tarjeta Crédito</option>
+                                <option value="Debito">Tarjeta Débito</option>
+                                <option value="Entrega">Contra Entrega</option>
+                                <option value="Entrega">Pago Online</option>
+                            </select>
+                        </div>
+
+                        <br>
+                        <div>
+                            <input type="checkbox" name="idterminos" value="terminos">
+                            <label for="idterminos">Acepto Términos y Condiciones</label>
+
+                        </div>
+                        <div>
+                            <input type="checkbox" name="idterminos" value="terminos">
+                            <label for="idterminos">Autorizo el tratamiento de los datos personales conforme a la
+                                política de
+                                datos</label>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="mb-6 text-center">
+                            <button
+                                class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                                type="button">
+                                Realizar pedido
+                            </button>
+                        </div>
+                        <hr class="mb-6 border-t" />
+                        <div class="text-center">
+                            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
+                                Crear Usuario
+                            </a>
+                        </div>
+
+                </div>
+                </form>
+            </div>
         </div>
-        <div>
-            <input type="checkbox" name="idterminos" value="terminos">
-            <label for="idterminos">Autorizo el tratamiento de los datos personales conforme a la política de
-                datos</label>
-        </div>
-        <br>
-        <br>
-        <div>
-            <button type="submit" value="Realizar Pedido">Realizar Pedido</button>
-        </div>
+    </div>
+    </div>
 </body>
 
 </html>
+
+
