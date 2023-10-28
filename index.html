@@ -5,108 +5,346 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"> </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts. min.css">
+    <script defer src="https://unpkg.com/alpinejs@3.xx/dist/cdn.min.js"> </script>
     <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-image: radial-gradient(circle at 50% -4.67%, #ff7f85 0, #ff748c 8.33%, #ff6994 16.67%, #ff5d9c 25%, #ff52a4 33.33%, #ff47ad 41.67%, #f23cb5 50%, #e234be 58.33%, #cf32c8 66.67%, #b935d2 75%, #9f3bdb 83.33%, #7f42e5 91.67%, #514aed 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
             text-align: center;
         }
     </style>
+
 </head>
 
 <body>
 
-    <h1>Documento Domicilios</h1>
-    <div>
-        <label for="fecha">De</label>
-        <input type="date" name="fecha" id="fecha">
+    <header>
 
-        <label for="fecha">A</label>
-        <input type="date" name="fecha" id="fecha">
-    </div>
-    <br>
-    <br>
-    <div>
-        <label for="numero">Número Domicilio</label>
-        <input type="numero" name="numero">
+        <div class="flex flex-col">
+            <h1 class="text-xl font-bold mb-4 text-stone-600">
+                Búsqueda Domicilios
+            </h1>
+    </header>
 
-        <select name="estado" id="estado">
-            <option value="estado" label="Estado"></option>
-            <option value="pagado">Pagado</option>
-            <option value="por pagar">Por Pagar</option>
-            <option value="facturado">Facturado</option>
-            <option value="anulado">Anulado</option>
-        </select>
+    <div class="bg-white p-6 rounded-xl shadow-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div class="flex flex-col">
 
-        <select name="repartidor" id="repartidor">
-            <option value="repartidor" label="Repartidor"></option>
-            <option value="rappi">Rappi</option>
-            <option value="ifood">Ifood</option>
-            <option value="ubereats">Uber Eats</option>
-        </select>
+                <label for="numero" class="font-medium text-sm text-stone-600">Número Domicilio</label>
+                <input type="text" id="numero" placeholder="#"
+                    class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+            </div>
+
+
+            <div class="flex flex-col">
+
+                <label for="date" class="font-medium text-sm text-stone-600">Fecha</label>
+                <input type="date" id="date"
+                    class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="status" class="font-medium text-sm text-stone-600">Estado</label>
+
+                <select id="status"
+                    class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+
+                    <option>Pagado</option>
+                    <option>Por Pagar</option>
+                    <option>Facturado</option>
+                    <option>Anulado</option>
+                </select>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="status" class="font-medium text-sm text-stone-600">Repartidor</label>
+
+                <select id="status"
+                    class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-orange-300 focus:ring focus:ring-orange-200 focus:ring-opacity-50">
+                    <option>Rappi</option>
+                    <option>Ifood</option>
+                    <option>Uber Eats</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid md:flex grid-cols-2 justify-end space-x-4 w-full mt-6">
+            <button
+                class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                type="button">
+                Borrar
+            </button>
+
+            <button
+                class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                type="button">
+                Buscar
+            </button>
+        </div>
+    </div>
+    </div>
+    <br>
+    <div>
+        <section class="container px-4 mx-auto">
+            <h2>Resultados</h2>
+            <div class="flex flex-col">
+                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                        <div class="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-50 dark:bg-gray-800">
+                                    <tr>
+                                        <th scope="col"
+                                            class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            <div class="flex items-center gap-x-3">
+                                                <input type="checkbox"
+                                                    class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700">
+                                                <button class="flex items-center gap-x-2">
+                                                    <span>Seleccionar</span>
+
+                                                    <svg class="h-3" viewBox="0 0 10 11" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M2.13347 0.0999756H2.98516L5.01902 4.79058H3.86226L3.45549 3.79907H1.63772L1.24366 4.79058H0.0996094L2.13347 0.0999756ZM2.54025 1.46012L1.96822 2.92196H3.11227L2.54025 1.46012Z"
+                                                            fill="currentColor" stroke="currentColor"
+                                                            stroke-width="0.1" />
+                                                        <path
+                                                            d="M0.722656 9.60832L3.09974 6.78633H0.811638V5.87109H4.35819V6.78633L2.01925 9.60832H4.43446V10.5617H0.722656V9.60832Z"
+                                                            fill="currentColor" stroke="currentColor"
+                                                            stroke-width="0.1" />
+                                                        <path
+                                                            d="M8.45558 7.25664V7.40664H8.60558H9.66065C9.72481 7.40664 9.74667 7.42274 9.75141 7.42691C9.75148 7.42808 9.75146 7.42993 9.75116 7.43262C9.75001 7.44265 9.74458 7.46304 9.72525 7.49314C9.72522 7.4932 9.72518 7.49326 9.72514 7.49332L7.86959 10.3529L7.86924 10.3534C7.83227 10.4109 7.79863 10.418 7.78568 10.418C7.77272 10.418 7.73908 10.4109 7.70211 10.3534L7.70177 10.3529L5.84621 7.49332C5.84617 7.49325 5.84612 7.49318 5.84608 7.49311C5.82677 7.46302 5.82135 7.44264 5.8202 7.43262C5.81989 7.42993 5.81987 7.42808 5.81994 7.42691C5.82469 7.42274 5.84655 7.40664 5.91071 7.40664H6.96578H7.11578V7.25664V0.633865C7.11578 0.42434 7.29014 0.249976 7.49967 0.249976H8.07169C8.28121 0.249976 8.45558 0.42434 8.45558 0.633865V7.25664Z"
+                                                            fill="currentColor" stroke="currentColor"
+                                                            stroke-width="0.3" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </th>
+
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Fecha
+                                        </th>
+
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Estado
+                                        </th>
+
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Número Domicilio
+                                        </th>
+
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Cliente
+                                        </th>
+
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Repartidor
+                                        </th>
+
+                                        <th scope="col"
+                                            class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                            Total a recibir
+                                        </th>
+
+                                        <th scope="col" class="relative py-3.5 px-4">
+                                            <span class="sr-only">Actions</span>
+                                        </th>
+
+
+
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
+                                    <tr>
+                                        <td
+                                            class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                                            <div class="inline-flex items-center gap-x-3">
+                                                <input type="checkbox"
+                                                    class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700">
+
+                                                <span>#0001</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            Octubre 6, 2023</td>
+                                        <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                            <div
+                                                class="inline-flex items-center px-3 py-1 rounded-full gap-x-2 text-emerald-500 bg-emerald-100/60 dark:bg-gray-800">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 3L4.5 8.5L2 6" stroke="currentColor" stroke-width="1.5"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+
+                                                <h2 class="text-sm font-normal">Pagado</h2>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            <div class="flex items-center gap-x-2">
+                                                <h2 class="text-sm font-medium text-gray-800 dark:text-white ">001</h2>
+
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            123456</td>
+                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                            <div class="flex items-center gap-x-6">
+                                                <button
+                                                    class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
+                                                    Rappi
+                                            </div>
+                                        </td>
+
+                                        <td
+                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            $80.000</td>
+                                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                                            <div class="flex items-center gap-x-6">
+                                                <button
+                                                    class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
+
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td
+                                            class="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                                            <div class="inline-flex items-center gap-x-3">
+                                                <input type="checkbox"
+                                                    class="text-blue-500 border-gray-300 rounded dark:bg-gray-900 dark:ring-offset-gray-900 dark:border-gray-700">
+
+                                                <span>#0002</span>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            Octubre 10, 2023</td>
+                                        <td class="px-4 py-4 text-sm font-medium text-gray-700 whitespace-nowrap">
+                                            <div
+                                                class="inline-flex items-center px-3 py-1 text-red-500 rounded-full gap-x-2 bg-red-100/60 dark:bg-gray-800">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M9 3L3 9M3 3L9 9" stroke="currentColor" stroke-width="1.5"
+                                                        stroke-linecap="round" stroke-linejoin="round" />
+                                                </svg>
+
+                                                <h2 class="text-sm font-normal">Anulado</h2>
+                                            </div>
+                                        </td>
+                                        <td
+                                            class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
+                                            <div class="flex items-center gap-x-2">
+
+                                                <h2 class="text-sm font-medium text-gray-800 dark:text-white ">002</h2>
+
+                                            </div>
+                        </div>
+                        </td>
+                        <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">456789</td>
+
+                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                            <div class="flex items-center gap-x-6">
+                                <button
+                                    class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
+                                    Ifood
+                            </div>
+                        </td>
+                        <td class="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">$50.000</td>
+                        <td class="px-4 py-4 text-sm whitespace-nowrap">
+                            <div class="flex items-center gap-x-6">
+                                <button
+                                    class="text-gray-500 transition-colors duration-200 dark:hover:text-indigo-500 dark:text-gray-300 hover:text-indigo-500 focus:outline-none">
+                            </div>
+                        </td>
+                        </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
     </div>
 
-    <br>
-    <div>
-        <button type="submit" value="buscar">Buscar</button>
+    <div class="flex items-center justify-between mt-6">
+        <a href="#"
+            class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+            </svg>
+
+            <span>
+                Anterior
+            </span>
+        </a>
+
+        <div class="items-center hidden md:flex gap-x-3">
+            <a href="#" class="px-2 py-1 text-sm text-blue-500 rounded-md dark:bg-gray-800 bg-blue-100/60">1</a>
+            <a href="#"
+                class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">2</a>
+            <a href="#"
+                class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">3</a>
+            <a href="#"
+                class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">...</a>
+            <a href="#"
+                class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">10</a>
+            <a href="#"
+                class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">11</a>
+            <a href="#"
+                class="px-2 py-1 text-sm text-gray-500 rounded-md dark:hover:bg-gray-800 dark:text-gray-300 hover:bg-gray-100">12</a>
+        </div>
+
+        <a href="#"
+            class="flex items-center px-5 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 bg-white border rounded-md gap-x-2 hover:bg-gray-100 dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800">
+            <span>
+                Siguiente
+            </span>
+
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-5 h-5 rtl:-scale-x-100">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
+            </svg>
+        </a>
     </div>
+    </section>
     <br>
-    <br>
-    <div>
-        <table border="1" cellpadding="10" cellspacing="5" align="center">
-            <header>
-                <tr>
-                    <th colspan="7">Resumen</th>
-                </tr>
-                <tr>
-                    <th colspan="1">Proveedor Domicilio</th>
-                    <th colspan="1">Fecha</th>
-                    <th colspan="1">Número Domicilio</th>
-                    <th colspan="1">Estado</th>
-                    <th colspan="1">Cliente</th>
-                    <th colspan="1">Total a recibir</th>
-                    <th colspan="1">Repartidor</th>
-                </tr>
-            </header>
-            <tbody>
-                <tr>
-                    <td>Restaurante 1</td>
-                    <td>15 de Septiembre de 2023</td>
-                    <td>001</td>
-                    <td>Facturado</td>
-                    <td>123456</td>
-                    <td>$80.000</td>
-                    <td>Rappi</td>
-                </tr>
-                <tr>
-                    <td>Restaurante 2</td>
-                    <td>15 de Octubre de 2023</td>
-                    <td>002</td>
-                    <td>Pagado</td>
-                    <td>456789</td>
-                    <td>$50.000</td>
-                    <td>Uber Eats</td>
-                </tr>
-        </table>
-        </tbody>
-    </div>
-    <br>
-    <div>
-        <ul class="pagination">
-            <li><a href="#">«</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a class="active" href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">»</a></li>
-        </ul>
-    </div>
-    <br>
-    <br>
-    <div>
-        <button type="submit" value="imprimir">Imprimir</button>
-        <button type="submit" value="excel">Excel</button>
-    </div>
+    <section>
+        <button
+            class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="button">
+            Imprimir
+        </button>
+
+        <button
+            class="bg-purple-500 text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            type="button">
+            Excel
+        </button>
+    </section>
+
 </body>
 
 </html>
